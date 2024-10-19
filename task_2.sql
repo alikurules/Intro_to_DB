@@ -12,7 +12,7 @@ CREATE TABLE Books (
     author_id INT,
     genre VARCHAR(100),
     publication_year YEAR,
-    FOREIGN KEY (author_id) REFERENCES authors(author_id)
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
 CREATE TABLE Customers (
@@ -30,13 +30,12 @@ CREATE TABLE Orders (
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
-CREATE TABLE Order_details (
-    order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT,
+CREATE TABLE Order_Details (
+    Order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
     book_id INT,
-    quantity INT,
+    quantity DOUBLE,
     price DECIMAL(10, 2),
-    FOREIGN KEY (order_id) REFERENCES orders(order_id),
-    FOREIGN KEY (book_id) REFERENCES books(book_id)
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
 
